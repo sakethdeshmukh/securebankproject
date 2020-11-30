@@ -1,0 +1,49 @@
+<p>addpayee works!</p>
+
+<div class="jumbotron">
+    <form [formGroup]="addPayeeForm" class="form-payee" (ngSubmit)="onSubmit(addPayeeForm)">
+        <div class="form-group">
+            <label for ="beneficiaryname" class="font-weight-bold">Beneficiary Name : </label>
+            <input type="text" class="form-control" placeholder="Beneficiary Name" formControlName="beneficiaryname"/>
+
+            <div *ngIf= "f.beneficiaryname.touched && f.beneficiaryname.invalid" class="alert-alert-danger">
+                <div *ngIf = "f.beneficiaryname.errors.required">Beneficiary Name is required .</div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for ="beneficiarynumber" class="font-weight-bold">Beneficiary Account Number : </label>
+            <input type="text" class="form-control" placeholder="Beneficiary Account Number" formControlName="beneficiarynumber"/>
+
+            <div *ngIf= "f.beneficiarynumber.touched && f.beneficiarynumber.invalid" class="alert-alert-danger">
+                <div *ngIf = "f.beneficiarynumber.errors.required">Beneficiary Name is required .</div>
+                <div *ngIf="f.beneficiarynumber.errors.pattern">Only numerics are allowed.</div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for ="rebeneficiarynumber" class="font-weight-bold">Re-enter Beneficiary Number : </label>
+            <input type="text" class="form-control" placeholder="Re-enter Beneficiary Number" formControlName="rebeneficiarynumber"/>
+
+            <div *ngIf= "f.rebeneficiarynumber.touched && f.rebeneficiarynumber.invalid" class="alert-alert-danger">
+                <div *ngIf = "f.rebeneficiarynumber.errors.required">Please Re-enter Beneficiary Number .</div>
+                <div *ngIf= "f.rebeneficiarynumber.errors.confirmValidator">Beneficiary Number is not Matching.</div>
+            </div>
+
+              
+            &nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                               
+            <button class="btn btn-primary" type="submit"  [disabled]="!addPayeeForm.valid" >Save as beneficiary</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <button class="btn btn-danger" type="reset"> Cancel</button><br/><br/>
+
+        </div>
+
+    </form>
+
+
+</div>

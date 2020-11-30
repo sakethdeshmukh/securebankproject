@@ -1,0 +1,305 @@
+<div class="container">
+    <div style = "text-align : center">
+    
+    <h2>Open A Savings Account</h2>
+    
+    </div>
+    <h2>Personal Details</h2>
+    <div>
+        
+        <form #userform="ngForm" (ngSubmit)="onSubmit(userform)" novalidate>
+           <p>
+                <label for="FirstName" >First Name*</label>
+                <input required type="text"  name="FirstName"  [(ngModel)]=newuser.FirstName #FirstName="ngModel">
+               
+            </p>
+            <div *ngIf="!FirstName?.valid && (FirstName?.dirty || FirstName?.touched)" class="error">
+                    <div *ngIf="FirstName.errors.required">
+                        <small class="text-danger">First Name  is Required</small>
+                    </div>
+                </div>
+            <p>
+                        <label for="MiddleName">Middle Name</label>
+                        <input type="text"  name="MiddleName"  [(ngModel)]=newuser.MiddleName #MiddleName="ngModel" >
+                       
+            </p>        
+    
+                    <p>
+                        <label for="LastName">Last Name*</label>
+                        <input required type="text"  name="LastName"  [(ngModel)]=newuser.LastName #LastName="ngModel" >
+                       
+                    </p>
+                    <div *ngIf="!LastName?.valid && (LastName?.dirty || LastName?.touched)" class="error">
+                            <div *ngIf="LastName.errors.required">
+                                <small class="text-danger">Last Name  is Required</small>
+                            </div>
+                        </div>
+    
+                            <p>
+                                <label for="FatherName">Father's Name*</label>
+                                <input required type="text"  name="FatherName"  [(ngModel)]=newuser.FatherName #FatherName="ngModel" >
+                               
+                            </p>
+                            <div *ngIf="!FatherName?.valid && (FatherName?.dirty || FatherName?.touched)" class="error">
+                                    <div *ngIf="FatherName.errors.required">
+                                        <small class="text-danger">Father Name  is Required</small>
+                                    </div>
+                                </div>
+                                    <p>
+                                        <label for="MobileNumber">Mobile Number*</label>
+                                        <input required minlength="10" maxlength="10" type="text" id = "MobileNumber" name="MobileNumber"  [(ngModel)]=newuser.MobileNumber #MobileNumber="ngModel" >
+                                       
+                                    </p>
+                                    <div *ngIf="!MobileNumber?.valid && (MobileNumber?.dirty || MobileNumber?.touched)" class="error">
+                                            <div *ngIf="MobileNumber.errors.required">
+                                                <small class="text-danger">Mobile Number  is Required</small>
+                                            </div>
+                                            <div *ngIf="MobileNumber.errors.minlength">
+                                                <small class="text-danger">Mobile Number should be of 10 digits</small>   
+                                            </div>
+                                        </div>
+                                            <p>
+                                                <label for="EmailID">Email ID*</label>
+                                                <input  required type="text"  name="EmailID"  [(ngModel)]=newuser.EmailID #EmailID="ngModel" required email>
+                                               
+                                            </p>
+                                            <div *ngIf="!EmailID?.valid && (EmailID?.dirty || EmailID?.touched)" class="error">
+                                                <div *ngIf="EmailID.errors.required">
+                                                    <small class="text-danger">Mail id is Required</small>
+                                                </div>
+                                                <div *ngIf="EmailID.errors.email">
+                                                    <small class="text-danger">invalid email address</small>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                <label for="AadharNumber">Aadhar Card Number*</label>
+                                                <input required minlength="12" maxlength="12" type="text" id = "AadharNumber"  name="AadharNumber"  [(ngModel)]=newuser.AadharNumber minlength="12"  #AadharNumber="ngModel"  >
+                                               
+                                            </p>
+                                            <div *ngIf="!AadharNumber?.valid && (AadharNumber?.dirty || AadharNumber?.touched)" class="error">
+                                                    <div *ngIf="AadharNumber.errors.required">
+                                                        <small class="text-danger">Aadhar Number  is Required</small>
+                                                    </div>
+                                                    <div *ngIf="AadharNumber.errors.minlength">
+                                                        <small class="text-danger">Aadhar Number must be 12 digits</small>   
+                                                    </div>
+                                                    <!-- <div *ngIf="AadharNumber.errors.maxlength">
+                                                        <small class="text-danger">Aadhar Number must be 12 digits</small>   
+                                                    </div> -->
+                                                    
+                                                    <!-- <div *ngif="AadharNumber.errors?.maxlength">
+                                                        Aadhar Number must be 12 digits
+                                                    </div> -->
+                                                    <!-- <div *ngIf="AadharNumber.errors.pattern">
+                                                        <small class="text-danger">  Adhar Number should be in pattern:0000-0000-0000</small>
+                                                         </div> -->
+                                                </div>
+<p>
+    <label for="DOB">Date of Birth*</label>
+    <input required type="date" name="DOB" [(ngModel)]=newuser.DOB #DOB="ngModel" >
+</p>
+<div *ngIf="!DOB?.valid && (DOB?.dirty || DOB?.touched)" class="error">
+    <div *ngIf="DOB.errors.required">
+        <small class="text-danger">Date of Birth is Required</small>
+    </div>
+</div>                                                
+                                                
+    <h4>
+        Residential Address
+    </h4>
+    <p>
+        <label for="PAddressLine1">a)Address Line 1*</label>
+        <input required type="text"  name="PAddressLine1"  [(ngModel)]=newuser.PAddressLine1 #PAddressLine1="ngModel" >
+       
+    </p>
+    <div *ngIf="!PAddressLine1?.valid && (PAddressLine1?.dirty || PAddressLine1?.touched)" class="error">
+            <div *ngIf="PAddressLine1.errors.required">
+                <small class="text-danger">Address Line 1 is Required</small>
+            </div>
+        </div>
+            <p>
+                <label for="PAddressLine2">b)Address Line 2*</label>
+                <input required type="text"  name="PAddressLine2"  [(ngModel)]=newuser.PAddressLine2 #PAddressLine2="ngModel" >
+               
+            </p>
+            <div *ngIf="!PAddressLine2?.valid && (PAddressLine2?.dirty || PAddressLine2?.touched)" class="error">
+                    <div *ngIf="PAddressLine2.errors.required">
+                        <small class="text-danger">Address Line 2 is Required</small>
+                    </div>
+                </div>
+    
+                    <p>
+                        <label for="PLandmark">c)Landmark</label>
+                        <input type="text"  name="PLandmark"  [(ngModel)]=newuser.PLandmark #PLandmark="ngModel" >
+                       
+                    </p>
+                    <p>
+                        <label for="PState">d)State*</label>
+                        <input required type="text"  name="PState"  [(ngModel)]=newuser.PState #PState="ngModel" >
+                       
+                    </p>
+                    <div *ngIf="!PState?.valid && (PState?.dirty || PState?.touched)" class="error">
+                            <div *ngIf="PState.errors.required">
+                                <small class="text-danger">State is Required</small>
+                            </div>
+                        </div>
+                            <p>
+                                <label for="PCity">e)City*</label>
+                                <input required type="text"  name="PCity"  [(ngModel)]=newuser.PCity #PCity="ngModel" >
+                               
+                            </p>
+                            <div *ngIf="!PCity?.valid && (PCity?.dirty || PCity?.touched)" class="error">
+                                    <div *ngIf="PCity.errors.required">
+                                        <small class="text-danger">City is Required</small>
+                                    </div>
+                                </div>
+                                    <p>
+                                        <label for="PPincode">f)Pincode*</label>
+                                        <input required minlength="6" maxlength="6" type="text" id="PPincode" name="PPincode"  [(ngModel)]=newuser.PPincode #PPincode="ngModel" >
+                                       
+                                    </p>
+                                    <div *ngIf="!PPincode?.valid && (PPincode?.dirty || PPincode?.touched)" class="error">
+                                            <div *ngIf="PPincode.errors.required">
+                                                <small class="text-danger">Pincode is Required</small>
+                                            </div>
+                                            <div *ngIf="PPincode.errors.minlength">
+                                                <small class="text-danger">Pincode must be 6 digits</small>   
+                                            </div>
+                                            <!-- <div *ngIf="PPincode.errors.maxlength">
+                                                <small class="text-danger">Pincode must be 6 digits</small>   
+                                            </div> -->
+                                        </div>
+    <h4>
+        Permanent Address
+    </h4>
+    <!-- <p>
+        <label for="MailingAddress">Permanent Address Same as Mailing Address</label>
+       <input type="checkbox" name="MailingAddress" id="MailingAddress" [(ngModel)]=newuser.MailingAddress>
+       
+    </p> -->
+    <p>
+        <label for="RAddressLine1">a)Address Line 1*</label>
+        <input required type="text"  name="RAddressLine1"  [(ngModel)]=newuser.RAddressLine1 #RAddressLine1="ngModel" >
+       
+    </p>
+    <div *ngIf="!RAddressLine1?.valid && (RAddressLine1?.dirty || RAddressLine1?.touched)" class="error">
+            <div *ngIf="RAddressLine1.errors.required">
+                <small class="text-danger">Address Line 1 is Required</small>
+            </div>
+        </div>
+            <p>
+                <label for="RAddressLine2">b)Address Line 2*</label>
+                <input required type="text"  name="RAddressLine2"  [(ngModel)]=newuser.RAddressLine2 #RAddressLine2="ngModel" >
+               
+            </p>
+            <div *ngIf="!RAddressLine2?.valid && (RAddressLine2?.dirty || RAddressLine2?.touched)" class="error">
+                    <div *ngIf="RAddressLine2.errors.required">
+                        <small class="text-danger">Address Line 2 is Required</small>
+                    </div>
+                </div>
+    
+                    <p>
+                        <label for="RLandmark">c)Landmark</label>
+                        <input type="text"  name="RLandmark"  [(ngModel)]=newuser.RLandmark #RLandmark="ngModel" >
+                       
+                    </p>
+                    <p>
+                        <label for="RState">d)State*</label>
+                        <input required type="text"  name="RState"  [(ngModel)]=newuser.RState #RState="ngModel" >
+                       
+                    </p>
+                    <div *ngIf="!RState?.valid && (RState?.dirty || RState?.touched)" class="error">
+                            <div *ngIf="RState.errors.required">
+                                <small class="text-danger">State is Required</small>
+                            </div>
+                        </div>
+                            <p>
+                                <label for="RCity">e)City*</label>
+                                <input required type="text"  name="RCity"  [(ngModel)]=newuser.RCity #RCity="ngModel" >
+                               
+                            </p>
+                            <div *ngIf="!RCity?.valid && (RCity?.dirty || RCity?.touched)" class="error">
+                                    <div *ngIf="RCity.errors.required">
+                                        <small class="text-danger">City is Required</small>
+                                    </div>
+                                </div>
+                                    <p>
+                                        <label for="RPincode">f)Pincode*</label>
+                                        <input required minlength="6" maxlength="6" type="text" id="RPincode" name="RPincode"  [(ngModel)]=newuser.RPincode #RPincode="ngModel" >
+                                       
+                                    </p>
+                                    <div *ngIf="!RPincode?.valid && (RPincode?.dirty || RPincode?.touched)" class="error">
+                                            <div *ngIf="RPincode.errors.required">
+                                                <small class="text-danger">Pincode is Required</small>
+                                            </div>
+                                            <div *ngIf="RPincode.errors.minlength">
+                                                <small class="text-danger">Pincode must be 6 digits</small>   
+                                            </div>
+                                        </div>
+    <h4> Occupation Details</h4>
+    
+    <p>
+        <label for="Occupationtype">a)Occupation Type*</label>
+        <input required type="text"  name="Occupationtype"  [(ngModel)]=newuser.Occupationtype #Occupationtype="ngModel" >
+       
+    </p>
+    <div *ngIf="!Occupationtype?.valid && (Occupationtype?.dirty || Occupationtype?.touched)" class="error">
+            <div *ngIf="Occupationtype.errors.required">
+                <small class="text-danger">Occupation Type is Required</small>
+            </div>
+        </div>
+    
+        <!-- <p>
+            <label for="Occupationtype">a)Occupation Type*</label>
+            <select name="Occupationtype" id="Occupationtype">
+             <option selected>Choose</option>
+             <option *ngFor="let o of Occupationtype">{{o}}</option>
+            </select>
+        </p> -->
+    
+    <p>
+        <label for="SourceofIncome">b)Source of Income*</label>
+        <input required type="text"  name="SourceofIncome"  [(ngModel)]=newuser.SourceofIncome #SourceofIncome="ngModel" >
+       
+    </p>
+    <div *ngIf="!SourceofIncome?.valid && (SourceofIncome?.dirty || SourceofIncome?.touched)" class="error">
+            <div *ngIf="SourceofIncome.errors.required">
+                <small class="text-danger">Source of Income is Required</small>
+            </div>
+        </div>
+    
+            <p>
+                <label for="GrossannualIncome">c)Gross Annual Income*</label>
+                <input required type="text"  name="GrossannualIncome"  [(ngModel)]=newuser.GrossannualIncome #GrossannualIncome="ngModel" >
+               
+            </p>
+            <div *ngIf="!GrossannualIncome?.valid && (GrossannualIncome?.dirty || GrossannualIncome?.touched)" class="error">
+                    <div *ngIf="GrossannualIncome.errors.required">
+                        <small class="text-danger">Gross Annual Income is Required</small>
+                    </div>
+                </div>
+    
+    <p>Debit/ATM Card</p>
+    
+    <p>    Do you want a debit card?</p>
+
+    <p>
+        <label for="DebitCardOpted">Opt for Debit Card</label>
+       <input type="checkbox" name="DebitCardOpted" id="DebitCardOpted" [(ngModel)]=newuser.DebitCardOpted>
+       
+    </p>
+    
+   <p>
+        <label for="NetBankingOpted">Opt for Net Banking</label>
+       <input type="checkbox" name="NetBankingOpted" id="NetBankingOpted" [(ngModel)]=newuser.NetBankingOpted>
+       
+    </p>
+    
+            <p>
+                <button class="btn btn-primary" type="submit" [disabled]="userform.invalid"> Submit</button>
+            </p>
+     
+            <!-- {{userform.valid}} -->
+        </form>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="d-flex" id="wrapper">
+   
+    <div id="page-content-wrapper" >
+         <div class="bg">
+            <br/>
+            <h4 class="text-center login-title text-white font-weight-bold">INITIATE NEFT PAYMENT</h4>
+
+           
+           
+            <div class="admin-body">
+               
+
+        
+                            <form [formGroup]="neftForm" class="form-signin" (ngSubmit)="onSubmit(neftForm)">
+                              
+
+                                <div class="form-group">
+                                    <label for="toaccount" class="font-weight-bold">To Account : <button type="btn btn-success" routerLink="/addpayee">Add New+</button></label>
+                                    <select class="form-control" id="toaccount" formControlName="toaccount">
+                                        <option value="" disabled selected hidden>Choose Beneficiary...</option>
+                                      <option *ngFor="let ben of listBeneficiaries" (click)="setBen(ben)"  [ngValue]="ben.BenificiaryAccountNumber">{{ben.BeneficiaryName}}</option>
+                                    </select>
+                                 <div *ngIf="f.toaccount.touched && f.toaccount.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.toaccount.errors.required">This field is required.</div>
+                                    </div> 
+                            </div>
+
+                                <div class="form-group">
+                                    <label for="amount" class="font-weight-bold">
+                                        Amount : </label>
+                                    <input type="number" class="form-control" placeholder="Amount" formControlName="amount" />
+        
+                                     <div *ngIf="f.amount.touched && f.amount.invalid" class="alert alert-danger">
+                                        <div *ngIf="f.amount.errors.required">Amount is required.</div>
+                                        <div *ngIf="f.amount.errors.pattern">Only numbers are allowed.</div>
+
+                                        </div> 
+        
+                                </div>
+                              
+
+                                <div class="form-group">
+                                    <label for="date" class="font-weight-bold" >
+                                        Transaction Date: </label>
+                                    <input type="date" class="form-control" placeholder="Transaction Date" formControlName="date">
+        
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="remark" class="font-weight-bold" >
+                                       Remark : </label>
+                                    <input type="text" class="form-control" placeholder="Remark" formControlName="remark">
+        
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="transactionpwd" class="font-weight-bold">
+                                       Transaction Password : </label>
+                                    <input type="password" class="form-control" placeholder="Transaction Password" formControlName="transactionpwd" id="transactionpwd"/>
+        
+                                    <div *ngIf="f.transactionpwd.touched && f.transactionpwd.invalid" class="alert alert-danger">
+                                        <div *ngIf="f.transactionpwd.errors.required">Transaction password is required.</div>
+                                    </div>
+        
+        
+                                </div>
+                               
+                                 <!-- <h6>Please Note:</h6>
+                                 <br>
+                                 <p class="italic">1. Transactions will be executed on the next working day if they are scheduled for Sundays,
+                                     National Holidays(as declared by RBI).</p>
+                                 <p class="italic">2. Timings for NEFT:Monday-Saturday(except 2nd and 4th Saturday) 6:00AM-6:30PM.</p>
+
+                                 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; -->
+                               <button class="btn btn-danger" type="reset"> Reset</button>  &nbsp;
+                                <button class="btn btn-primary" type="submit"  [disabled]="!neftForm.valid"  >Continue</button>
+                               <br/><br/>
+        
+                               
+                            </form>
+                            
+                            
+                </div>
+ 
+          
+          
+        </div>
+
+    </div>
+</div> 

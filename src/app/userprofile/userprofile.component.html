@@ -1,0 +1,69 @@
+<p>userprofile works!!</p>
+
+<div class="container">
+    <button class="btn-btn-primary"(click)="viewUserProfile()">User Profile</button>
+    <div class="jumbotron">
+
+        <div class="card" style="width:400px">
+            <div class="card-body">
+              <h4 class="card-title">Personal Info</h4>
+              <table class="table table -boarderd table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Last Name</th>
+                        <th>Email ID</th>
+                        <th>Mobile Number</th>
+                        <th>Aadhar Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let u of user">
+                        <td><span>{{u.FirstName}}</span></td>
+                        <td><span>{{u.MiddleName}}</span></td>
+                        <td><span>{{u.LastName}}</span></td>
+                        <td><span>{{u.EmailID}}</span></td>
+                        <td><span>{{u.MobileNumber}}</span></td>
+                        <td><span>{{u.Aadharnumber}}</span></td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+
+              
+            
+            </div>
+          </div>
+
+    </div>
+    <!-- <button class="btn-btn-primary"(click)="getaccountdetails()">More Details</button>
+    <div class="jumbotron">
+
+        <div class="card" style="width:400px">
+            <div class="card-body">
+              <h4 class="card-title">Personal Info</h4>
+              <table class="table table -boarderd table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Account Number</th>
+                        <th>Account Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let t of trans1">
+                        <td><span>{{t.AccountNumber}}</span></td>
+                        <td><span>{{t.AccountBalance}}</span></td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+
+              
+            
+            </div>
+          </div>
+
+    </div> -->
+</div>
+

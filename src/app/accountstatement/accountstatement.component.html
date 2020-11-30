@@ -1,0 +1,60 @@
+<div class="d-flex" id="wrapper">
+    <div id="page-content-wrapper" >
+         <div class="bgpic"><br/>
+  
+         
+  <div style="text-align: center;">
+            <form [formGroup]="accountstatementform" (ngSubmit)="onSubmit(accountstatementform)">
+           
+            <h5 style="color:rgb(211, 210, 250);"> Statement from &nbsp; <input  type="date" placeholder="Select Begin Date" id="begindate" formControlName="begindate" />
+                to &nbsp;<input type="date" placeholder="Select End Date" id="enddate" formControlName="enddate"/></h5><br><br>
+    
+            
+                <br><br><br>
+             
+              <button type="submit" class="btn btn-primary" style="width: 10%;" [hidden]="inboundClick" (click)="inboundClick = !inboundClick"  href="">Submit</button>
+  
+              </form>
+  
+              <div *ngIf="inboundClick">
+                  
+                <br><br>
+      
+             
+                <table class="table table-striped" style="margin-left:auto;margin-right:auto; width:50%; background-color: #dedede;">
+                  <thead>
+                        <tr>
+                            <th>Transaction Date</th>
+                            <th> Sender Account</th>
+                            <th>Receiver Account</th>
+                            <th>Amount</th>
+                            <th>Remarks</th>
+                            
+                           
+                        </tr>
+                  </thead>
+                  
+                    <tbody>
+                        <tr *ngFor="let tran of trans">
+                            <td>{{tran.TransactionDate }}</td>
+                            <td>{{tran.SenderAccount }}</td>
+                            <td>{{tran.RecieverAccount}}</td>
+                            <td>{{tran.TransactionAmount}}</td>
+                            <td>{{tran.Remarks}}</td>
+                        </tr>
+                        <tr *ngIf="!trans || trans.length==0">
+                            <th colspan="5">
+                                <p class="text-right text-danger">Sorry no account statements available</p>
+                            </th>
+                        </tr>
+                    </tbody> 
+                  </table>
+                </div>
+           </div>
+    </div>
+  </div> 
+  
+  
+  
+  
+  

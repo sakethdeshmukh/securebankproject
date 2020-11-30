@@ -1,0 +1,48 @@
+<button class="btn btn-primary" (click)="getRecentTransactions()">Account Summary</button>
+
+<div class="container">
+    <div class="jumbotron">
+        <table class="table table -boarderd table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Sender Account</th>
+                    <th>Reciever Account</th>
+                    <th>Transaction Amount</th>
+                    <th>Transaction Mode</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t of trans">
+                    <td><span>{{t.TransactionID}}</span></td>
+                    <td><span>{{t.SenderAccount}}</span></td>
+                    <td><span>{{t.RecieverAccount}}</span></td>
+                    <td><span>{{t.TransactionAmount}}</span></td>
+                    <td><span>{{t.TransactionMode}}</span></td>
+                   
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <!-- <div class="jumbotron">
+        <table class="table table -boarderd table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Account Number</th>
+                    <th>Account Balance</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t1 of trans1">
+                    <td><span>{{t1.AccountNumber}}</span></td>
+                    <td><span>{{t1.AccountBalance}}</span></td>
+                   
+                </tr>
+            </tbody>
+        </table>
+
+    </div> -->
+    
+</div>

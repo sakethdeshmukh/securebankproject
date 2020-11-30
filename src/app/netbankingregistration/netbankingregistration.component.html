@@ -1,0 +1,167 @@
+<div class="container">
+    <div style = "text-align : center">
+    
+    <h2>Register for Internet Banking</h2>
+    
+    </div>
+    
+    <div>
+        
+        <form #userform="ngForm" (ngSubmit)="onSubmit(userform)" novalidate>
+           <!-- <p>
+                <label for="AccountNumber" >Account Number*</label>
+                <input required minlength="11" maxlength="11" type="text"  name="AccountNumber"  [(ngModel)]=newuser.AccountNumber #AccountNumber="ngModel">
+               
+            </p>
+            <div *ngIf="!AccountNumber?.valid && (AccountNumber?.dirty || AccountNumber?.touched)" class="error">
+                    <div *ngIf="AccountNumber.errors.required">
+                        <small class="text-danger">Account Number is Required</small>
+                    </div>
+                    <div *ngIf="AccountNumber.errors.minlength">
+                        <small class="text-danger">Account Number must be of 11 digits</small>   
+                    </div>
+                </div> -->
+                <div class="form-group"
+     [class.has-error]="AccountNumber.touched && AccountNumber.invalid">
+  <label for="AccountNumber" class="control-label">AccountNumber</label>
+  <input id="AccountNumber" required minlength="11" maxlength="11" type="text" class="form-control"
+         name="AccountNumber" [(ngModel)]="newuser.AccountNumber"
+         #AccountNumber="ngModel">
+  <span class="help-block"
+        *ngIf="AccountNumber.touched && AccountNumber.errors?.required">
+        AccountNumber is required and must be of 11 digits
+    </span>
+    </div>
+                   
+    
+                    <!-- <p>
+                        <label for="Password">Set Login Password*</label>
+                        <input required type="text"  name="Password"  [(ngModel)]=newuser.Password #Password="ngModel" >
+                       
+                    </p> -->
+                    <!-- <div *ngIf="!Password?.valid && (Password?.dirty || Password?.touched)" class="error">
+                            <div *ngIf="Password.errors.required">
+                                <small class="text-danger">Login Password is Required</small>
+                            </div>
+                        </div> -->
+                        <div class="form-group"
+     [class.has-error]="Password.touched && Password.invalid">
+  <label for="Password" class="control-label">Password</label>
+  <input id="Password" required type="text" class="form-control"
+         name="Password" [(ngModel)]="newuser.Password"
+         #Password="ngModel">
+  <span class="help-block"
+        *ngIf="Password.touched && Password.errors?.required">
+    Password is required
+  </span>
+</div>
+    
+                            <!-- <p>
+                                <label for="ConfirmPassword">Confirm Login Password*</label>
+                                <input required type="text"  name="ConfirmPassword" appConfirmEqualValidator="Password"  [(ngModel)]=newuser.ConfirmPassword #ConfirmPassword="ngModel" >
+                               
+                            </p>
+                            <div *ngIf="!ConfirmPassword?.valid && (ConfirmPassword?.dirty || ConfirmPassword?.touched)" class="error">
+                                    <div *ngIf="ConfirmPassword.errors.required">
+                                        <small class="text-danger">Confirm Login Password  is Required</small>
+                                    </div>
+                                    <div *ngIf="ConfirmPassword.errors.notEqual && !ConfirmPassword.errors.required">
+                                        <small class="text-danger">Password and Confirm Password does not match"</small>
+                                    </div>
+                                </div> -->
+
+                                <div class="form-group"
+     [class.has-error]="ConfirmPassword.touched && ConfirmPassword.invalid">
+  <label for="ConfirmPassword" class="control-label">Confirm Password</label>
+  <input name="ConfirmPassword" appConfirmEqualValidator="Password" required
+         id="ConfirmPassword" type="text" class="form-control"
+         [(ngModel)]="newuser.ConfirmPassword" #ConfirmPassword="ngModel">
+  <span class="help-block"
+        *ngIf="ConfirmPassword.touched && ConfirmPassword.errors?.required">
+    Confirm Password is required
+  </span>
+  <span class="help-block"
+        *ngIf="ConfirmPassword.touched && ConfirmPassword.errors?.notEqual &&
+          !ConfirmPassword.errors?.required">
+    Password and Confirm Password does not match
+  </span>
+</div>
+
+                                
+                                    
+
+                                       <!--  <p>
+                                            <label for="TransactionPassword">Set Transaction Password*</label>
+                                            <input required type="text"  name="TransactionPassword"  [(ngModel)]=newuser.TransactionPassword #TransactionPassword="ngModel" >
+                                           
+                                        </p>
+                                        <div *ngIf="!TransactionPassword?.valid && (TransactionPassword?.dirty || TransactionPassword?.touched)" class="error">
+                                                <div *ngIf="TransactionPassword.errors.required">
+                                                    <small class="text-danger">Transaction Password is Required</small>
+                                                </div>
+                                            </div> -->
+                                            <div class="form-group"
+     [class.has-error]="TransactionPassword.touched && TransactionPassword.invalid">
+  <label for="TransactionPassword" class="control-label">TransactionPassword</label>
+  <input id="TransactionPassword" required type="text" class="form-control"
+         name="TransactionPassword" [(ngModel)]="newuser.TransactionPassword"
+         #TransactionPassword="ngModel">
+  <span class="help-block"
+        *ngIf="TransactionPassword.touched && TransactionPassword.errors?.required">
+        TransactionPassword is required
+  </span>
+</div>
+
+                        
+                                               <!--  <p>
+                                                    <label for="ConfirmTransactionPassword">Confirm Transaction Password*</label>
+                                                    <input required type="text"  name="ConfirmTransactionPassword"  [(ngModel)]=newuser.ConfirmTransactionPassword #ConfirmTransactionPassword="ngModel" >
+                                                   
+                                                </p>
+                                                <div *ngIf="!ConfirmTransactionPassword?.valid && (ConfirmTransactionPassword?.dirty || ConfirmTransactionPassword?.touched)" class="error">
+                                                        <div *ngIf="ConfirmTransactionPassword.errors.required">
+                                                            <small class="text-danger">Confirm Transaction Password  is Required</small>
+                                                        </div>
+                                                    </div> -->
+
+ <div class="form-group"
+     [class.has-error]="ConfirmTransactionPassword.touched && ConfirmTransactionPassword.invalid">
+  <label for="ConfirmTransactionPassword" class="control-label">ConfirmTransactionPassword Password</label>
+  <input name="ConfirmTransactionPassword" appConfirmEqualValidator="TransactionPassword" required
+         id="ConfirmTransactionPassword" type="text" class="form-control"
+         [(ngModel)]="newuser.ConfirmTransactionPassword" #ConfirmTransactionPassword="ngModel">
+  <span class="help-block"
+        *ngIf="ConfirmTransactionPassword.touched && ConfirmTransactionPassword.errors?.required">
+    Confirm Password is required
+  </span>
+  <span class="help-block"
+        *ngIf="ConfirmTransactionPassword.touched && ConfirmTransactionPassword.errors?.notEqual &&
+          !ConfirmTransactionPassword.errors?.required">
+    Password and Confirm Password does not match
+  </span>
+</div>
+                                                    <!-- <p>
+                                                        <label for="OTP">Enter OTP*</label>
+                                                        <input required type="text" id = "OTP" name="OTP"  [(ngModel)]=newuser.OTP #OTP="ngModel" >
+                                                       
+                                                    </p>
+                                                    <div *ngIf="!OTP?.valid && (OTP?.dirty || OTP?.touched)" class="error">
+                                                            <div *ngIf="OTP.errors.required">
+                                                                <small class="text-danger">OTP is Required</small>
+                                                            </div>
+                                                            
+                                                        </div> -->
+
+
+                                            
+    
+            <p>
+                <button class="btn btn-primary" type="submit" [disabled]="userform.invalid"> Submit</button>
+            </p>
+            
+            <h6 alignment="center" style="color: darkblue;" routerLink="/customerdetails" >First time user? Open Savings Account</h6>
+     
+            <!-- {{userform.valid}}  routerLink="/customerlogin"-->
+        </form>
+    </div>
+</div>
