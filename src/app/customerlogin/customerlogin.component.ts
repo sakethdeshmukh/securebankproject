@@ -49,27 +49,41 @@ export class CustomerloginComponent implements OnInit {
 
     }
     
-    this.cuslogin.logincustomer(cust).subscribe(data => {
+    this.cuslogin.logincustomer(cust).subscribe(data  => {
+      const resultResponse:any=data;
       console.log(data);
+      if(data!=null)
+      {
+
       //const apiResponse:any = data;
-    if(this.loggedIn = true)
-    {
+    this.loggedIn = true;
+    
       
   localStorage.setItem('CID',form.value.cid)
-  sessionStorage.setItem('customerData',JSON.stringify(data));
-  
+  sessionStorage.setItem('customerData',JSON.stringify(resultResponse));
+  localStorage.setItem('cusAccno',resultResponse.AccountNumber);
 this.benservice.accountById(form.value.cid).subscribe(data =>{
   //console.log(data);
   //const apiResponse:any = data;
-  localStorage.setItem('cusAccno',data.AccountNumber);
-  this.router.navigate(['customerdetailspage']);
+  
+  this.router.navigate(['customerlayout']);
 })
-    }
-    else
-    {
-      this.err="Invalid username or password!!";
-    }
-});
+}
+else
+{
+  
+}
+    
+},error=>{
+  if(error.status==400){
+    console.log(error.error);
+    alert(error.error);
+  }else{
+    console.log(error);
+  }
+  
+}
+);
 
    
 }

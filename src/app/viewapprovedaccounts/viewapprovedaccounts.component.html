@@ -1,0 +1,39 @@
+<div class="container"> 
+    <div class="jumbotron">
+        <!-- <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search by FirstName" style="width:300px" [(ngModel)]="searchTerm" />
+               
+        </div> -->
+       
+        <table class="table table -boarderd table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>CID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Father Name </th>
+                    <th>Aadhar Number</th>
+                    <th>Contact</th>
+                    <th>City</th>
+                    <th>Occupation</th>
+    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cus of cust">
+                    <td><span>{{cus.CID}}</span></td>
+                    <td><span>{{cus.FirstName}}</span></td>
+                    <td><span>{{cus.LastName}}</span></td>
+                    <td><span>{{cus.FatherName}}</span></td>
+                    <td><span>{{cus.Aadharnumber}}</span></td>
+                    <td><span>{{cus.MobileNumber}}</span></td>
+                    <td><span>{{cus.PCity}}</span></td>
+                    <td><span>{{cus.Occupationtype}}</span></td>
+           
+                </tr>
+            </tbody>
+        </table>
+    
+    </div>
+   
+</div>

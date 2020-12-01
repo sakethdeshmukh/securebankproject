@@ -20,7 +20,7 @@ export class AdminactionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchpendingapprovals();
-    this.fetchapprovals();
+    //this.fetchapprovals();
   }
 
 

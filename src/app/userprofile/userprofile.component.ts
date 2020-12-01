@@ -21,11 +21,11 @@ export class UserprofileComponent implements OnInit {
     const id = localStorage.getItem("CID");
     this.accservice.getUserProfile(id).subscribe((data)=> {this.user=data;})
   } 
-  /* getaccountdetails()
+  getaccountdetails()
   {
     const cid = localStorage.getItem("CID")
     this.accountservice.getaccountbynumber(cid).subscribe((data)=>{this.trans1=data;})
     
-  } */
+  }
 
 }

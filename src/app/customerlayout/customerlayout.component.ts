@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CustomerLogin } from 'src/app/services/customerlogin';
 
 @Component({
   selector: 'app-customerlayout',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerlayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private cuslogin:CustomerLogin) { }
+  custcheck;
 
-  ngOnInit(): void {
+  ngOnInit() {
+    /* if(this.cuslogin.logincust)
+    {
+      this.custcheck=true;
+    }
+    else
+    {
+      this.custcheck=false;
+      this.router.navigate(['home']);
+    } */
+  }
+  logoff()
+  {
+    //sessionStorage.clear();
+    this.cuslogin.Logout();
+    this.router.navigate(['home']);
   }
 
 }

@@ -1,5 +1,7 @@
-<p>customerlogin works!</p>
-<div class ="jumbotron"> 
+<app-navbar></app-navbar>
+<div class="col-md-6 col-md-offset-3">
+    
+<div class ="container"> 
     <form [formGroup]="customerloginForm" (ngSubmit)="onSubmit(customerloginForm)" class="form-signin" >
 
         <div class="form-group">
@@ -23,10 +25,10 @@
         </div>
                           
          
-        &nbsp; &nbsp;&nbsp;
+        <!-- &nbsp; &nbsp;&nbsp;
         
         <button class="btn btn-success" routerLink="/"> Back</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
     
         <button class="btn btn-primary" type="submit" [disabled]="!customerloginForm.valid">Login</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
@@ -34,11 +36,12 @@
     
         <button class="btn btn-danger" type="reset"> Cancel</button><br/><br/>
     
-     
+       
        <h6 alignment="center" style="color: darkblue;" routerLink="/customerdetails" >First time user? Open Savings Account</h6>
        <h6 alignment="center" style="color: darkblue;" routerLink="/netbankingregistration" >No Internet Banking? Register</h6>
              
        
     </form>
 
+</div>
 </div>

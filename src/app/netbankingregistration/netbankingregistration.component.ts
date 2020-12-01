@@ -24,9 +24,17 @@ export class NetbankingregistrationComponent implements OnInit {
    onSubmit(userform:NgForm)
    {
        console.log(userform.value)
-       this.netbankingregistrationservice.registeruser(this.newuser).subscribe((data)=>{this.result=data;})
-       alert ('Successfully Submitted!!!');
+       this.netbankingregistrationservice.registeruser(this.newuser).subscribe((data)=>{this.result=data;
+        if(this.result==="Registered Successfully")
+        {
+       alert ('Successfully Registered!!!');
        this.router.navigate(['customerlogin']);
+        }
+        else
+        {
+          alert("Account Number not registered with bank!!!");
+        }
+      })
 
    }
 

@@ -30,7 +30,7 @@ export class AdminloginComponent implements OnInit {
         
         sessionStorage.setItem('AdminId',response.AdminId);
         
-        this.router.navigate(['adminactions']);
+        this.router.navigate(['adminlayout']);
       }
       else {
         this.err="Invalid username or password!!";

@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container">
     <div style = "text-align : center">
     
@@ -17,11 +18,12 @@
                     <div *ngIf="FirstName.errors.required">
                         <small class="text-danger">First Name  is Required</small>
                     </div>
+                    
                 </div>
             <p>
                         <label for="MiddleName">Middle Name</label>
                         <input type="text"  name="MiddleName"  [(ngModel)]=newuser.MiddleName #MiddleName="ngModel" >
-                       
+                        
             </p>        
     
                     <p>
@@ -33,6 +35,7 @@
                             <div *ngIf="LastName.errors.required">
                                 <small class="text-danger">Last Name  is Required</small>
                             </div>
+                            
                         </div>
     
                             <p>
@@ -44,6 +47,7 @@
                                     <div *ngIf="FatherName.errors.required">
                                         <small class="text-danger">Father Name  is Required</small>
                                     </div>
+                                    
                                 </div>
                                     <p>
                                         <label for="MobileNumber">Mobile Number*</label>
@@ -57,6 +61,7 @@
                                             <div *ngIf="MobileNumber.errors.minlength">
                                                 <small class="text-danger">Mobile Number should be of 10 digits</small>   
                                             </div>
+                                            
                                         </div>
                                             <p>
                                                 <label for="EmailID">Email ID*</label>

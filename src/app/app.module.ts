@@ -33,6 +33,9 @@ import { FooterComponent } from './footer/footer.component';
 import { AccountbalanceComponent } from './accountbalance/accountbalance.component';
 import { CustomerlayoutComponent } from './customerlayout/customerlayout.component';
 import { AdminlayoutComponent } from './adminlayout/adminlayout.component';
+import { NavbarComponent } from './navbar/navbar.component';
+//import { PendingApprovalsComponent } from './approvals/pending-approvals.component';
+import { ViewapprovedaccountsComponent } from './viewapprovedaccounts/viewapprovedaccounts.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,10 @@ import { AdminlayoutComponent } from './adminlayout/adminlayout.component';
     FooterComponent,
     AccountbalanceComponent,
     CustomerlayoutComponent,
-    AdminlayoutComponent
+    AdminlayoutComponent,
+    NavbarComponent,
+    //PendingApprovalsComponent,
+    ViewapprovedaccountsComponent
     
   ],
   imports: [

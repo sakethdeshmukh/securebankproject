@@ -11,6 +11,7 @@ import { BeneficiaryService } from '../services/beneficiary.service';
 export class AddpayeeComponent implements OnInit {
 
   addPayeeForm:FormGroup;
+  result;
 
   constructor(private formbuilder:FormBuilder, private router:Router, private benservice : BeneficiaryService) 
   {
@@ -72,9 +73,17 @@ export class AddpayeeComponent implements OnInit {
     console.log(beneficiary);
 
     this.benservice.addbeneficiary(beneficiary).subscribe(data => {
-      console.log(data)
-      alert("Beneficiary Added Successfully!")
-      this.router.navigate(['neft']);
+      this.result=data;
+    if(this.result==="Beneficiary Account Number does not exists")
+    {
+      alert("Beneficiary Account Number not registered with bank!!");
+    }
+    else{
+      console.log(data);
+      alert("Beneficiary Added Successfully!");
+      this.router.navigate(['customerlayout/neft']);
+    }
+      
 
     })
 

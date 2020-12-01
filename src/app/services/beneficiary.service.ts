@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AccountDetail } from '../models/accountdetail.model';
 import { Beneficiary } from '../models/beneficiary.model';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({ providedIn: "root" })
@@ -26,7 +27,7 @@ export class BeneficiaryService {
     {
         
         const cusAccno = localStorage.getItem("cusAccno")
-        return this.http.post<Beneficiary>("https://localhost:44398/api/Beneficiary/" +cusAccno ,ben );
+        return this.http.post<Beneficiary>(environment.baseapiURl+"/api/Beneficiary/" +cusAccno ,ben );
 
     }
 
@@ -34,7 +35,7 @@ export class BeneficiaryService {
     {
         
         const cusAccno = localStorage.getItem("cusAccno")
-        return this.http.get<Beneficiary[]>("https://localhost:44398/api/AllBeneficiaries?Cusacc=" +cusAccno);
+        return this.http.get<Beneficiary[]>(environment.baseapiURl+"/api/AllBeneficiaries?Cusacc=" +cusAccno);
 
     }
 
@@ -42,14 +43,14 @@ export class BeneficiaryService {
     accountById(cid)
     {
         
-        return this.http.get<AccountDetail>("https://localhost:44398/api/account?cid=" +cid);
+        return this.http.get<AccountDetail>(environment.baseapiURl+"/api/account?cid=" +cid);
 
     }
 
     
     accountByAccNumber(acc)
     {
-        return this.http.get<Response>("https://localhost:44398/api/Account/GetAccountById?acc=" +acc);
+        return this.http.get<Response>(environment.baseapiURl+"/api/Account/GetAccountById?acc=" +acc);
 
     }
     

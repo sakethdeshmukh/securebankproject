@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CustomerdetailsComponent implements OnInit {
   newuser:Registration;
-  result:any=[];
+  result;
 
   constructor(private router :Router,private accountopeningservice : AccountOpeningService) 
   { this.newuser ={
@@ -49,9 +49,18 @@ export class CustomerdetailsComponent implements OnInit {
   onSubmit(userform:NgForm)
   {
     console.log(userform.value)
-    this.accountopeningservice.registeruser(this.newuser).subscribe((data)=>{this.result.data;})
+    this.accountopeningservice.registeruser(this.newuser).subscribe((data)=>{this.result=data;
+    if(this.result==="Adhar Number Already Exists")
+    {
+      alert ("Adhar Number Already Exists");
+    }
+    else
+    {
     alert ('Successfully Submitted!');
     this.router.navigate(['home']);
+    }
+  })
+    
     
   }
 

@@ -1,11 +1,12 @@
+<app-navbar></app-navbar>
 <div class="col-md-6 col-md-offset-3">
-    <h2>Admin Login</h2>
+    
     <div class="jumbotran">
 
         <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
             <div class="form-group">
                 <label for="AdminId"><b>AdminId</b></label><br>
-                <input type="text" placeholder="AdminId" [(ngModel)]="loginobject.AdminId" formControlName="AdminId" required>
+                <input type="text" class="form-control" placeholder="AdminId" [(ngModel)]="loginobject.AdminId" formControlName="AdminId" required>
 
                 <div *ngIf="!loginForm.get('AdminId')?.valid && (loginForm.get('AdminId')?.dirty 
              || loginForm.get('AdminId')?.touched)" class="error">
@@ -17,7 +18,7 @@
             </div><br>
             <div>
                 <label for="AdminAdminPassword"><b>AdminPassword</b></label><br>
-                <input type="password" placeholder="Enter AdminPassword" [(ngModel)]="loginobject.AdminPassword" formControlName="AdminPassword" required>
+                <input type="password" class="form-control" placeholder="Enter AdminPassword" [(ngModel)]="loginobject.AdminPassword" formControlName="AdminPassword" required>
             </div> <br>
             <button class="btn btn-primary" type="submit" >Sign in</button>&nbsp;&nbsp;
             <button class="btn btn-danger" type="button">Reset</button><br><br>

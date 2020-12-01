@@ -27,7 +27,7 @@ export class NeftComponent implements OnInit {
     this.neftForm = this.formBuilder.group({
       toaccount: new FormControl('',Validators.required),
       amount: new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
-      date: new FormControl('', Validators.required),
+      date: new Date().toISOString().slice(0,10), /* FormControl('', Validators.required) */
       remark: new FormControl(''),
       transactionpwd: new FormControl('',Validators.required)
     });

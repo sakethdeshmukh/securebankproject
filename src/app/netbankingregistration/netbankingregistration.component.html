@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container">
     <div style = "text-align : center">
     
@@ -47,13 +48,22 @@
                         <div class="form-group"
      [class.has-error]="Password.touched && Password.invalid">
   <label for="Password" class="control-label">Password</label>
-  <input id="Password" required type="text" class="form-control"
-         name="Password" [(ngModel)]="newuser.Password"
+  <input id="Password" required type="password" class="form-control"
+         name="Password" [(ngModel)]="newuser.Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
          #Password="ngModel">
   <span class="help-block"
         *ngIf="Password.touched && Password.errors?.required">
     Password is required
   </span>
+  <div *ngIf="Password.touched && Password.errors?.pattern">
+      <small class="text-danger">Password must contain:
+          One Small letter
+          One Capital letter
+          One Number
+          One special character
+          Length must be of Six
+      </small>
+  </div>
 </div>
     
                             <!-- <p>
@@ -74,7 +84,7 @@
      [class.has-error]="ConfirmPassword.touched && ConfirmPassword.invalid">
   <label for="ConfirmPassword" class="control-label">Confirm Password</label>
   <input name="ConfirmPassword" appConfirmEqualValidator="Password" required
-         id="ConfirmPassword" type="text" class="form-control"
+         id="ConfirmPassword" type="password" class="form-control"
          [(ngModel)]="newuser.ConfirmPassword" #ConfirmPassword="ngModel">
   <span class="help-block"
         *ngIf="ConfirmPassword.touched && ConfirmPassword.errors?.required">
@@ -103,13 +113,22 @@
                                             <div class="form-group"
      [class.has-error]="TransactionPassword.touched && TransactionPassword.invalid">
   <label for="TransactionPassword" class="control-label">TransactionPassword</label>
-  <input id="TransactionPassword" required type="text" class="form-control"
-         name="TransactionPassword" [(ngModel)]="newuser.TransactionPassword"
+  <input id="TransactionPassword" required type="password" class="form-control"
+         name="TransactionPassword" [(ngModel)]="newuser.TransactionPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
          #TransactionPassword="ngModel">
   <span class="help-block"
         *ngIf="TransactionPassword.touched && TransactionPassword.errors?.required">
         TransactionPassword is required
   </span>
+  <div *ngIf="TransactionPassword.touched && TransactionPassword.errors?.pattern">
+    <small class="text-danger">Password must contain:
+        One Small letter
+        One Capital letter
+        One Number
+        One special character
+        Length must be of Six
+    </small>
+</div>
 </div>
 
                         
@@ -128,7 +147,7 @@
      [class.has-error]="ConfirmTransactionPassword.touched && ConfirmTransactionPassword.invalid">
   <label for="ConfirmTransactionPassword" class="control-label">ConfirmTransactionPassword Password</label>
   <input name="ConfirmTransactionPassword" appConfirmEqualValidator="TransactionPassword" required
-         id="ConfirmTransactionPassword" type="text" class="form-control"
+         id="ConfirmTransactionPassword" type="password" class="form-control"
          [(ngModel)]="newuser.ConfirmTransactionPassword" #ConfirmTransactionPassword="ngModel">
   <span class="help-block"
         *ngIf="ConfirmTransactionPassword.touched && ConfirmTransactionPassword.errors?.required">

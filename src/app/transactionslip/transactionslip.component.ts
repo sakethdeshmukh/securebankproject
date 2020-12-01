@@ -38,7 +38,7 @@ export class TransactionslipComponent implements OnInit {
   }
   navigate(){
     //localStorage.removeItem('tranid')
-    this.router.navigate(['customerdetailspage'])
+    this.router.navigate(['customerlayout'])
     
   }
 }
